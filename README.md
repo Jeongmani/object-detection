@@ -11,18 +11,20 @@
 - DPM(Deformable Parts Model): sliding-window기법을 활용해서 이미지의 다양한 location과 scale속에서 classifying을 진행
 - R-CNN: region proposal methods를 사용해 이미지 속에서 potential bounding box를 생성한 이후에 이 box에서 classifying을 진행
 
->3Step![The YOLO Detection System](https://user-images.githubusercontent.com/96530828/167073401-2f9aad79-0d80-44d8-947c-5924e99677d0.jpg)
+3Step<img src = "https://user-images.githubusercontent.com/96530828/167073401-2f9aad79-0d80-44d8-947c-5924e99677d0.jpg">
  
 
 #### Unified Detection
->  
+> <img src = "https://user-images.githubusercontent.com/96530828/167075599-e1e29044-b50b-496f-b7b3-92bb60112f35.jpg" width="70%" height="70%">
+
 1. input image를 SxS Grid 격자 형태로 동등하게 나눈다.
 2. 하나의 Grid격자는 B개의 potential bounding box를 가진다.
 3. 하나의 potential bounding box는 x,y,w,h,c의 5가지 요소로 정의할 수 있다.
       - x,y는 potential bounding box의 중앙을 나타내는 요소
       - w,h는 potential bounding box의 너비와 높이를 나타내는 요소
-      - c(Confidence)는 potential bounding box가 object를 포함할 가능성 Pr(Class_i|Object), IOU(Intersection Over Union)의 곱 형태로 나타냄
-      >    > What is IOU: 
+      - c(Confidence)는 potential bounding box가 object를 포함할 가능성 Pr(Class_i|Object), IoU(Intersection over Union)의 곱 형태로 나타냄
+      > <img src= "https://user-images.githubusercontent.com/96530828/167075593-fcf49eac-9806-4a9f-8fd8-77d36873d99c.png" width="50%" height="50%">
+4. 각각의 Grid는 C개의 potential conditional probabilities Pr(Class_i|Object)를 가진다. 
 
 
 #### reference
