@@ -28,5 +28,36 @@
 
 #### Network Design
 <img src= "https://user-images.githubusercontent.com/96530828/167241672-0e9df248-4346-4e18-b98e-76ddb27f6163.jpg">
+GoogLeNet을 기반으로 네트워크를 정의했고, 24개의 convolution layers와 2개의 fully connected layers를 사용(GoogLeNet에서 사용한 inception module 대신 1x1 reduction layers와 3x3 convolution layers를 사용함)
+
+#### Training
+> imformation
+1. mageNet 1000-class competition dataset으로 pretrain을 진행함
+2. Ren et al에서 pretrain model에 convolutional layer와 fully connected layer를 추가하면 성능이 좋아진다는 부분에서 착안하여 진행
+3. Bunding box의 width와 height를 normalize함
+4. 마지막 layer에 leaky ReLU를 설치함
+
+##### mAP
+> object detection에서 평가 요소로 많이 사용됨
+>    - mAP를 설명하기 위해서는 AP를 이해해야함
+>    - precesion(정확도) , Recall(재현율)
+>    - 옳고 그름을 판단하는 작업 A에 대한 결과는 4가지 
+>    > 1. 옳다고 판단했는데 옳은 경우
+>    > 2. 옳다고 판단했는데 틀린 경우
+>    > 3. 틀리다고 판단했는데 옳은 경우
+>    > 4. 틀리다고 판단했는데 틀린 경우
+
+> 각 확률을 P_i(A)라고 할때
+> - Precesion은 P_1(A)/(P_1(A)+P_2(A))로 계산됨 : 옳다고 판단한것 중 실제로 옳은 비율
+> - Recall은 P_1(A)/(P_1(A)+P_3(A))로 계산됨 : 옳은 것 중 옳다고 판단한 비율
+
+<img src = "https://user-images.githubusercontent.com/96530828/167242556-f1af370f-31e3-4aa7-b041-4f2abc912262.jpg" width="50%" height="50%">
+ 
+> Precesion, Recall 모두 크면 더 완벽한 판단을 했다는 의미, 하지만 실제로는 하나가 커지면 하나가 작아지는 경우가 많음
+> * AP에 대한 개념: Precesion, Recall 모두 커서 완벽한 판단을 하는 것이 좋게 평가하자는 의미에서 정의된 evaluation metric으로 Precision - Recall Curve로 감싸져 있는 영역의 너비 의미
+> * mAP는 여기에 mean을 추가해 판단이 한 번이 아니라 여러 번 나타날 때 mean을 계산해 산출한 지표
+
+
+
 #### reference
 [1] Joseph Pedmon, You Only Look Once: Unified, Real-Time Object Detection, 2016
