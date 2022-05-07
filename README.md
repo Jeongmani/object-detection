@@ -26,6 +26,7 @@
       > <img src= "https://user-images.githubusercontent.com/96530828/167075593-fcf49eac-9806-4a9f-8fd8-77d36873d99c.png" width="50%" height="10%">
 4. 각각의 Grid는 C개의 potential conditional probabilities Pr(Class_i|Object)를 가진다. 
 
-
+#### Network Design
+<img src= "https://user-images.githubusercontent.com/96530828/167241672-0e9df248-4346-4e18-b98e-76ddb27f6163.jpg">
 #### reference
 [1] Joseph Pedmon, You Only Look Once: Unified, Real-Time Object Detection, 2016
