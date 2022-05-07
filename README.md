@@ -23,7 +23,7 @@
       - x,y는 potential bounding box의 중앙을 나타내는 요소
       - w,h는 potential bounding box의 너비와 높이를 나타내는 요소
       - c(Confidence)는 potential bounding box가 object를 포함할 가능성 Pr(Class_i|Object), IoU(Intersection over Union)의 곱 형태로 나타냄
-      > <img src= "https://user-images.githubusercontent.com/96530828/167075593-fcf49eac-9806-4a9f-8fd8-77d36873d99c.png" width="50%" height="50%">
+      > <img src= "https://user-images.githubusercontent.com/96530828/167075593-fcf49eac-9806-4a9f-8fd8-77d36873d99c.png" width="50%" height="20%">
 4. 각각의 Grid는 C개의 potential conditional probabilities Pr(Class_i|Object)를 가진다. 
 
 
