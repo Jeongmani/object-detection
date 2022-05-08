@@ -57,6 +57,18 @@ GoogLeNet을 기반으로 네트워크를 정의했고, 24개의 convolution lay
 > * AP에 대한 개념: Precesion, Recall 모두 커서 완벽한 판단을 하는 것이 좋게 평가하자는 의미에서 정의된 evaluation metric으로 Precision - Recall Curve로 감싸져 있는 영역의 너비 의미
 > * mAP는 여기에 mean을 추가해 판단이 한 번이 아니라 여러 번 나타날 때 mean을 계산해 산출한 지표
 
+#### Loss Function
+> 1. Sum-Squared Error를 사용하여 loss를 계산한다.
+>    > 최적화가 용이하지만 loss의 최적화와 mAP의 증가가 완벽하게 맞지 않았다. 특히 localization error와 classification error를 동일한 가중치로 계산하다보니 많은 이미지 Grid가 object를 포함하지 않는 결과를 산출했다.
+>    > * 이러한 문제를 해결하기 위해서 bounding box coordinate의 loss를 늘리고 object가 존재하지 않는 경우에 confidence prediction의 loss를 줄이는 factor를 도입했다.
+
+> 2. Sum-Squared Error는 large bounding box와 small bounding box가 loss에 미치는 영향을 동일하게 가중
+> * 하지만 이는 IoU를 계산함에 있어서 large bounding box의 민감도, 즉 deviation이 작기 때문
+>    > 이를 해결하기 위해서 w,h의 scale을 square root를 사용해 전반적으로 줄여서 large bounding box와 small bounding box에서 deviation 차이를 줄이는 방식을 선택
+
+> 3. Object당 하나의 bounding box를 가지게 하기 위해서 NMS(Non-Maximum Suppresion)을 사용
+> * maximum이 아닌 confidence를 가진 bounding box를 억제하는 방법
+
 
 
 #### reference
