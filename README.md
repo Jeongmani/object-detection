@@ -69,6 +69,7 @@ GoogLeNet을 기반으로 네트워크를 정의했고, 24개의 convolution lay
 > 3. Object당 하나의 bounding box를 가지게 하기 위해서 NMS(Non-Maximum Suppresion)을 사용
 > * maximum이 아닌 confidence를 가진 bounding box를 억제하는 방법
 
+<img src = "https://user-images.githubusercontent.com/96530828/167285514-d68e18ab-de7d-4cbe-9709-d6fe0e33bc6d.jpg" width="50%" height="50%">
 
 
 #### reference
